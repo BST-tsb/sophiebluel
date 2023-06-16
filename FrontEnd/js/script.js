@@ -81,9 +81,65 @@ fetch("http://localhost:5678/api/works")
                 
                 
             })
+
+            const portfolio = document.querySelector('.port'); 
+        portfolio.innerHTML = `
+        <div class="modal-cont">
+			
+			<div class="modal">
+				<i class="fa-solid fa-xmark"></i>
+				<h3>Galerie photo</h3>
+				<div class="gallery-modal">
+				
+				</div>
+				<div class="line"></div>
+				<div class="btn-modal">
+					<button class="add-modal">Ajouter une photo</button>
+					<button class="delete-modal">Supprimer la galerie</button>
+				</div>
+			</div>
+			<div class="modal-add-img">
+				<i class="fa-solid fa-xmark leave2"></i>
+				<i class="fa-solid fa-arrow-left"></i>
+				<h3>Ajout photo</h3>
+				<div class="btn-modal">
+					<form class="form-add">
+						<div class="container-img">
+							<i class="fa-regular fa-image"></i>
+							<div class="add-img-btn">
+								<p>+ Ajouter photo</p>
+							</div>
+							<p class="fill-accept">jpg, png : 4mo max</p>
+							<input type="file" class="photo" name="photo" accept="image/png, image/jpeg">
+							<output></output>
+						</div>
+						
+
+						<label for="title">Titre</label>
+  						<input type="text" class="title" name="title">
+						<label for="category">Catégorie</label>
+						<select class="category-choice" name="category">
+							<option value="null"></option>
+							<option value="objets">Objets</option>
+							<option value="appartements">Appartements</option>					  
+							<option value="hotels">Hôtels & restaurants</option>
+					  
+						</select>
+						<div class="error-formadd"></div>
+						<div class="line"></div>
+						<input type = "submit" name="upload" value = "Ajouter" class="validate">
+					</form>
+					
+				</div>
+				
+	
+	
+			</div>
+		</div>
+        `
         }
     
-
+        
         const galleryModal = document.querySelector('.gallery-modal');
         function gallerieModal() {
             galleryModal.innerHTML = '';
