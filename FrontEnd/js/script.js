@@ -180,40 +180,17 @@ fetch("http://localhost:5678/api/works")
             
         }
         gallerieModal();
-      /*   
-        function deleteModal() {
-            const closeModal = document.querySelector('.modal');
-
-            document.addEventListener('click', event => {
-            const isClickInside = closeModal.contains(event.target);
-
-            if (!isClickInside) {
-                if (document.querySelector('.modal').style["display"] = 'block') {
-                    console.log('test');
-                    document.querySelector('.modal-cont').style["display"] = 'none';
-                    document.querySelector('.modal').style["display"] = 'none';
-                    document.querySelector('.modal-add-img').style["display"] = 'none';
-                }
-                
-                
-            }
-            })
-        }
-        deleteModal()
-        */
-        const modal = document.querySelector('.modal');
+        
+        const modalCont = document.querySelector('.modal-cont');
         window.addEventListener('click', (event) => {
-        // si je clique en dehors de la modal, je la ferme
-        if(event.path.includes(modal)) {
+
+        if(event.target === modalCont) {
             document.querySelector('.modal-cont').style["display"] = 'none';
             document.querySelector('.modal').style["display"] = 'none';
+            document.querySelector('.modal-add-img').style["display"] = 'none';
         }
         });
-
-
-
-
-        
+  
         btnModifier.addEventListener('click', function() {
             document.querySelector('.modal-cont').style["display"] = 'flex';
             document.querySelector('.modal').style["display"] = 'block';
