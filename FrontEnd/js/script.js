@@ -71,6 +71,8 @@ fetch("http://localhost:5678/api/works")
         
         const login = document.querySelector('.login');
         if (token){
+            const btnCont = document.querySelector('.btn-cont');
+            btnCont.innerHTML = '';
             document.querySelector('.header-fix').style["display"] = 'flex';
             document.querySelector('.edit').style["display"] = 'flex';
             document.querySelector('.edit2').style["display"] = 'flex';
@@ -85,7 +87,6 @@ fetch("http://localhost:5678/api/works")
             const portfolio = document.querySelector('.port'); 
         portfolio.innerHTML = `
         <div class="modal-cont">
-			
 			<div class="modal">
 				<i class="fa-solid fa-xmark"></i>
 				<h3>Galerie photo</h3>
@@ -179,7 +180,39 @@ fetch("http://localhost:5678/api/works")
             
         }
         gallerieModal();
-        
+      /*   
+        function deleteModal() {
+            const closeModal = document.querySelector('.modal');
+
+            document.addEventListener('click', event => {
+            const isClickInside = closeModal.contains(event.target);
+
+            if (!isClickInside) {
+                if (document.querySelector('.modal').style["display"] = 'block') {
+                    console.log('test');
+                    document.querySelector('.modal-cont').style["display"] = 'none';
+                    document.querySelector('.modal').style["display"] = 'none';
+                    document.querySelector('.modal-add-img').style["display"] = 'none';
+                }
+                
+                
+            }
+            })
+        }
+        deleteModal()
+        */
+        const modal = document.querySelector('.modal');
+        window.addEventListener('click', (event) => {
+        // si je clique en dehors de la modal, je la ferme
+        if(event.path.includes(modal)) {
+            document.querySelector('.modal-cont').style["display"] = 'none';
+            document.querySelector('.modal').style["display"] = 'none';
+        }
+        });
+
+
+
+
         
         btnModifier.addEventListener('click', function() {
             document.querySelector('.modal-cont').style["display"] = 'flex';
@@ -264,7 +297,6 @@ fetch("http://localhost:5678/api/works")
                 formData.append('title', title);
                 formData.append('image', image);
                 formData.append('category', category);
-                console.log('true')
                 
                 console.log(formData.get('image', 'category', 'title'));
                 fetch('http://localhost:5678/api/works', {
@@ -316,6 +348,7 @@ fetch("http://localhost:5678/api/works")
 
     })
    
+    
 
 
     
