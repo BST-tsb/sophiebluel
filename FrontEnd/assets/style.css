@@ -168,6 +168,7 @@ margin: auto;
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	margin-bottom: 25px;
 }
 input.sumbit {
 	height: 35px;
